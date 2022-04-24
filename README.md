@@ -17,3 +17,4 @@
 
 5. Reduccion de codigo
 ![alt text](/RefactorizacionImg/CodigoDuplicado.png)
+![alt text](/RefactorizacionImg/CodigoDuplicado2.png)
