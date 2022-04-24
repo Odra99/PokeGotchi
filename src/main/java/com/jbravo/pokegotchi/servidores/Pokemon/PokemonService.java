@@ -7,7 +7,7 @@ public class PokemonService {
     
 
     public String revivirPokemon(Jugador jugador,int posicion,  int precio){
-        if(jugador.getCementerio(0) instanceof PokemonVacio){
+        if(jugador.getCementerio(posicion) instanceof PokemonVacio){
             return "Este es un espacio vacío";
         }else{
             if(jugador.getMonedas()>= precio){
