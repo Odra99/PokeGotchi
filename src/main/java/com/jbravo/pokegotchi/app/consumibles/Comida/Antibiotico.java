@@ -5,5 +5,6 @@ public class Antibiotico extends Medicina{
     public Antibiotico(){
         super.aspecto = "/consumibles/Antibiotico.png";
         super.curarEnfermedades = 3;
+        super.precio = 80;
     }
 }

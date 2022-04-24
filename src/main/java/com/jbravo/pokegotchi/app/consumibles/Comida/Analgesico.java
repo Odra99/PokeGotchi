@@ -5,5 +5,6 @@ public class Analgesico extends Medicina{
     public Analgesico(){
         super.aspecto = "/consumibles/Analgesico.png";
         super.curarEnfermedades = 2;
+        super.precio = 50;
     }
 }

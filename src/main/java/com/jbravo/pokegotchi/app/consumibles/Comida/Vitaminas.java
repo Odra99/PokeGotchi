@@ -5,6 +5,7 @@ public class Vitaminas extends Medicina{
     public Vitaminas(){
         super.aspecto ="/consumibles/Vitamina.png";
         super.curarEnfermedades = 1;
+        super.precio = 20;
     }
 
 }

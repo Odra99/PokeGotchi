@@ -10,6 +10,7 @@ public abstract class Comida {
     protected String aspecto;
     protected int comidasParaMorir;
     protected int saciarPeticionComida = 1;
+    protected int precio;
 
     public String getAspecto() {
         return aspecto;
@@ -21,5 +22,9 @@ public abstract class Comida {
 
     public int getSaciarPeticionComida() {
         return saciarPeticionComida;
+    }
+
+    public int getPrecio(){
+        return precio;
     }
 }

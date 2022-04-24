@@ -7,6 +7,7 @@ import com.jbravo.pokegotchi.app.motor.tienda.ListadoPokemons;
 import com.jbravo.pokegotchi.app.pokemons.Pokemon;
 import com.jbravo.pokegotchi.app.pokemons.PokemonGen;
 import com.jbravo.pokegotchi.app.pokemons.PokemonVacio;
+import com.jbravo.pokegotchi.controladores.Tienda.VentasController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -157,6 +158,8 @@ public class PrincipalFrame extends JFrame{
 
     private final JFrame alerta = new JFrame();
 
+    private VentasController ventaControler = new VentasController();
+
     public PrincipalFrame(){
         setSize(750,640);
         setContentPane(principalPanelPnl);
@@ -220,78 +223,57 @@ public class PrincipalFrame extends JFrame{
         $10Button.addActionListener(new ActionListener() {//VENDER MANZANA, VALE 10 -------------------------------------
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 10){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 10);
-                    PokeGotchi.jugador.setContadorManzanas(PokeGotchi.jugador.getContadorManzanas()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderManzana(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
+                
                 dibujarMonedas();dibujarInventario();
             }
         });
         $30Button.addActionListener(new ActionListener() {//VENDER CEREAL, VALE 30
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 30){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 30);
-                    PokeGotchi.jugador.setContadorCereal(PokeGotchi.jugador.getContadorCereal()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderCereal(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
+                
                 dibujarMonedas();dibujarInventario();
             }
         });
         $50Button.addActionListener(new ActionListener() { // VENDER WAFFLES
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 50){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 50);
-                    PokeGotchi.jugador.setContadorWaffles(PokeGotchi.jugador.getContadorWaffles()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderWaffles(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
+                
                 dibujarMonedas();dibujarInventario();
             }
         });
         $20Button.addActionListener(new ActionListener() { //VENDER VITAMINAS
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 20){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 20);
-                    PokeGotchi.jugador.setContadorVitaminas(PokeGotchi.jugador.getContadorVitaminas()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderVitaminas(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();dibujarInventario();
             }
         });
         $50Button1.addActionListener(new ActionListener() { //VENDER ANALGESICO
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 50){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 50);
-                    PokeGotchi.jugador.setContadorAnalgesico(PokeGotchi.jugador.getContadorAnalgesico()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderAnalgesico(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();dibujarInventario();
             }
         });
         $80Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getMonedas() >= 80){
-                    PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas() - 80);
-                    PokeGotchi.jugador.setContadorAntibiotico(PokeGotchi.jugador.getContadorAntibiotico()+1);
-                    JOptionPane.showMessageDialog(alerta, "Compra realizada exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
-                }
+                String mensaje = ventaControler.venderAntibiotico(PokeGotchi.jugador);
+                
+                JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();
                 dibujarInventario();
             }

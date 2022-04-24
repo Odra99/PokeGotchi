@@ -4,6 +4,7 @@ public abstract class Medicina {
 
     protected String aspecto;
     protected int curarEnfermedades;
+    protected int precio;
 
     public Medicina(){}
 
@@ -12,5 +13,9 @@ public abstract class Medicina {
     }
     public int getCurarEnfermedades() {
         return curarEnfermedades;
+    }
+
+    public int getPrecio(){
+        return precio;
     }
 }
