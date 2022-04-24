@@ -1,10 +1,11 @@
 package com.jbravo.pokegotchi.app;
 
-import com.jbravo.pokegotchi.app.consumibles.*;
 import com.jbravo.pokegotchi.app.consumibles.Comida.Analgesico;
 import com.jbravo.pokegotchi.app.consumibles.Comida.Antibiotico;
+import com.jbravo.pokegotchi.app.consumibles.Comida.Medicina;
 import com.jbravo.pokegotchi.app.consumibles.Comida.Vitaminas;
 import com.jbravo.pokegotchi.app.consumibles.Medicina.Cereal;
+import com.jbravo.pokegotchi.app.consumibles.Medicina.Comida;
 import com.jbravo.pokegotchi.app.consumibles.Medicina.Manzana;
 import com.jbravo.pokegotchi.app.consumibles.Medicina.Waffles;
 import com.jbravo.pokegotchi.app.motor.Jugador;
@@ -17,7 +18,8 @@ public class PokeGotchi {
     public static final Manzana manzana = new Manzana();
     public static final Cereal cereal = new Cereal();
     public static final Waffles waffles = new Waffles();
-
+    public static final Medicina[] medicinas = new Medicina[3];
+    public static final Comida[] comidas = new Comida[3];
     public static final Vitaminas vitaminas = new Vitaminas();
     public static final Analgesico analgesico = new Analgesico();
     public static final Antibiotico antibiotico = new Antibiotico();

@@ -161,8 +161,24 @@ public class PrincipalFrame extends JFrame{
 
     private VentasController ventaControler = new VentasController();
     private PokemonController pokemonController = new PokemonController();
+    private final int VITAMINAS = 0;
+    private final int ANALGESICO = 1;
+    private final int ANTIBIOTICO  = 2;
+    private final int MANZANA = 0;
+    private final int CEREAL = 1;
+    private final int WAFFLES  = 2;
+
 
     public PrincipalFrame(){
+        
+        PokeGotchi.medicinas[0] = PokeGotchi.vitaminas;
+        PokeGotchi.medicinas[1] = PokeGotchi.analgesico;
+        PokeGotchi.medicinas[2] = PokeGotchi.antibiotico;
+        PokeGotchi.comidas[0] = PokeGotchi.manzana;
+        PokeGotchi.comidas[1] = PokeGotchi.cereal;
+        PokeGotchi.comidas[2] = PokeGotchi.waffles;
+
+
         setSize(750,640);
         setContentPane(principalPanelPnl);
         this.setTitle("PokeGotchi");
@@ -225,7 +241,7 @@ public class PrincipalFrame extends JFrame{
         $10Button.addActionListener(new ActionListener() {//VENDER MANZANA, VALE 10 -------------------------------------
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderManzana(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderComida(PokeGotchi.jugador, MANZANA);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 
@@ -235,7 +251,7 @@ public class PrincipalFrame extends JFrame{
         $30Button.addActionListener(new ActionListener() {//VENDER CEREAL, VALE 30
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderCereal(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderComida(PokeGotchi.jugador, CEREAL);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 
@@ -245,7 +261,7 @@ public class PrincipalFrame extends JFrame{
         $50Button.addActionListener(new ActionListener() { // VENDER WAFFLES
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderWaffles(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderComida(PokeGotchi.jugador, WAFFLES);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 
@@ -255,7 +271,7 @@ public class PrincipalFrame extends JFrame{
         $20Button.addActionListener(new ActionListener() { //VENDER VITAMINAS
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderVitaminas(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderMedicinas(PokeGotchi.jugador,VITAMINAS);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();dibujarInventario();
@@ -264,7 +280,7 @@ public class PrincipalFrame extends JFrame{
         $50Button1.addActionListener(new ActionListener() { //VENDER ANALGESICO
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderAnalgesico(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderMedicinas(PokeGotchi.jugador,ANALGESICO);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();dibujarInventario();
@@ -273,7 +289,7 @@ public class PrincipalFrame extends JFrame{
         $80Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = ventaControler.venderAntibiotico(PokeGotchi.jugador);
+                String mensaje = ventaControler.venderMedicinas(PokeGotchi.jugador,ANTIBIOTICO);
                 
                 JOptionPane.showMessageDialog(alerta, mensaje);
                 dibujarMonedas();
@@ -365,7 +381,7 @@ public class PrincipalFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String medicina = Objects.requireNonNull(medicinaCbxMasc1.getSelectedItem()).toString();
                 medicina = medicinaCbxMasc1.getSelectedItem().toString();
-                Jugador.getPokemons(0).curar(medicina);
+                Jugador.getPokemons(0).curar(medicina,medicinaCbxMasc1.getSelectedIndex());
                 dibujarEnFrame();
             }
         });
@@ -374,7 +390,7 @@ public class PrincipalFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String medicina = Objects.requireNonNull(medicinaCbxMasc2.getSelectedItem()).toString();
                 medicina = medicinaCbxMasc2.getSelectedItem().toString();
-                Jugador.getPokemons(1).curar(medicina);
+                Jugador.getPokemons(1).curar(medicina,medicinaCbxMasc2.getSelectedIndex());
                 dibujarEnFrame();
             }
         });
@@ -383,7 +399,7 @@ public class PrincipalFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String medicina = Objects.requireNonNull(medicinaCbxMasc3.getSelectedItem()).toString();
                 medicina = medicinaCbxMasc3.getSelectedItem().toString();
-                Jugador.getPokemons(2).curar(medicina);
+                Jugador.getPokemons(2).curar(medicina,medicinaCbxMasc3.getSelectedIndex());
                 dibujarEnFrame();
             }
         });
@@ -392,7 +408,7 @@ public class PrincipalFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String medicina = Objects.requireNonNull(medicinaCbxMasc4.getSelectedItem()).toString();
                 medicina = medicinaCbxMasc4.getSelectedItem().toString();
-                Jugador.getPokemons(3).curar(medicina);
+                Jugador.getPokemons(3).curar(medicina,medicinaCbxMasc4.getSelectedIndex());
                 dibujarEnFrame();
             }
         });
@@ -401,7 +417,7 @@ public class PrincipalFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String medicina = Objects.requireNonNull(medicinaCbxMasc5.getSelectedItem()).toString();
                 medicina = medicinaCbxMasc5.getSelectedItem().toString();
-                Jugador.getPokemons(4).curar(medicina);
+                Jugador.getPokemons(4).curar(medicina, medicinaCbxMasc5.getSelectedIndex());
                 dibujarEnFrame();
             }
         });

@@ -33,7 +33,13 @@ public abstract class Pokemon {
     protected int vida;
     protected int tiempoRandom = PokeGotchi.tiempoDeVida;   //random inicial del tiempo
 
+
+    
+
     protected boolean enfermo = false;
+    
+    
+    
     public Pokemon(){}                                      //Constructor
 
     //------------------------------------------------------------------------------------------------------------
@@ -116,36 +122,9 @@ public abstract class Pokemon {
     }
 
 
-    public void curar(String medicina){
+    public void curar(String medicina,int medicinaPos){
         if(contadorEnfermedades > 0){
-            switch (medicina){
-                case "Vitaminas":
-                    if(PokeGotchi.jugador.getContadorVitaminas() >= 1){
-                        contadorEnfermedades = contadorEnfermedades - PokeGotchi.vitaminas.getCurarEnfermedades();
-                        PokeGotchi.jugador.setContadorVitaminas(PokeGotchi.jugador.getContadorVitaminas()-1);
-                        alerta("Le diste vitaminas, curaste 1 enfermedad");
-                    }else{
-                        alerta("No tiene vitaminas para dar :c");
-                    }break;
-                case "Analgesico":
-                    if(PokeGotchi.jugador.getContadorAnalgesico()>=1){
-                        contadorEnfermedades = contadorEnfermedades - PokeGotchi.analgesico.getCurarEnfermedades();
-                        PokeGotchi.jugador.setContadorAnalgesico(PokeGotchi.jugador.getContadorAnalgesico()-1);
-                        alerta("Le diste analgésico, curaste 2 enfermedades");
-                    }else{
-                        alerta("No tiene analgesico para dar :c");
-                    }break;
-
-                case "Antibiotico":
-
-                    if (PokeGotchi.jugador.getContadorAntibiotico()>=1){
-                        contadorEnfermedades = contadorEnfermedades - PokeGotchi.antibiotico.getCurarEnfermedades();
-                        PokeGotchi.jugador.setContadorAntibiotico(PokeGotchi.jugador.getContadorAntibiotico()-1);
-                        alerta("Le diste antibiotico, curaste 3 enfermedades");
-                    }else{
-                        alerta("No tiene antibiotico para dar");
-                    }break;
-            }
+            darMedicina(medicinaPos, medicina);
         }else{
             alerta("No hay enfermedades que curar :3");
         }
@@ -157,6 +136,17 @@ public abstract class Pokemon {
     }
     
     protected void alerta(String mensaje){JOptionPane.showMessageDialog(null, mensaje);}
+
+
+    protected void darMedicina(int posicion, String medicina){
+        if (PokeGotchi.jugador.getContadorMedicina()[posicion]>=1){
+            contadorEnfermedades = contadorEnfermedades - PokeGotchi.medicinas[posicion].getCurarEnfermedades();
+            PokeGotchi.jugador.setContadorAntibiotico(PokeGotchi.jugador.getContadorMedicina()[posicion]-1);
+            alerta("Le diste "+medicina+", curaste 3 enfermedades");
+        }else{
+            alerta("No tiene "+medicina+" para dar");
+        }
+    }
 
     public Random getRandom() {
         return random;

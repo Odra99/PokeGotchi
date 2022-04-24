@@ -14,3 +14,6 @@
 4. Implementacion de controladores
 
 ![alt text](/RefactorizacionImg/ControllersAdding.png)
+
+5. Reduccion de codigo
+![alt text](/RefactorizacionImg/CodigoDuplicado.png)

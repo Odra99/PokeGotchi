@@ -17,6 +17,10 @@ public class Jugador {
     int contadorAnalgesico;
     int contadorAntibiotico;
 
+
+    int[] contadorMedicina = new int[3];
+    int[] contadorComida = new int[3];
+
     static Pokemon [] pokemons = new Pokemon[5];      //pokemones disponibles
     static Pokemon [] cementerio = new Pokemon[5];    //pokemones muertos que pueden revivir :c
 
@@ -39,6 +43,31 @@ public class Jugador {
 
     public static Pokemon getPokemons(int posicion) {return pokemons[posicion];} //GET Y SET POKEMON
     public void setPokemons(int posicion, Pokemon cambio) {pokemons[posicion] = cambio;}
+
+    public int[] getContadorMedicina(){
+        return contadorMedicina;
+    }
+
+    public int getContadorMedicinaPosicion(int posicion){
+        return contadorMedicina[posicion];
+    }
+
+    public void setContadorMedicina(int posicion, int cantidad){
+        contadorMedicina[posicion] = cantidad;
+    }
+
+
+    public int[] getContadorComida(){
+        return contadorComida;
+    }
+
+    public int getContadorComindaPosicion(int posicion){
+        return contadorComida[posicion];
+    }
+
+    public void setContadorComida(int posicion, int cantidad){
+        contadorComida[posicion] = cantidad;
+    }
 
     public int getMonedas() {return monedas;}public void setMonedas(int monedas) {this.monedas = monedas;}
     public int getContadorManzanas() {return contadorManzanas;}public void setContadorManzanas(int contadorManzanas) {this.contadorManzanas = contadorManzanas;}
