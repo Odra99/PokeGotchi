@@ -7,6 +7,7 @@ import com.jbravo.pokegotchi.app.motor.tienda.ListadoPokemons;
 import com.jbravo.pokegotchi.app.pokemons.Pokemon;
 import com.jbravo.pokegotchi.app.pokemons.PokemonGen;
 import com.jbravo.pokegotchi.app.pokemons.PokemonVacio;
+import com.jbravo.pokegotchi.controladores.Pokemon.PokemonController;
 import com.jbravo.pokegotchi.controladores.Tienda.VentasController;
 
 import javax.swing.*;
@@ -159,6 +160,7 @@ public class PrincipalFrame extends JFrame{
     private final JFrame alerta = new JFrame();
 
     private VentasController ventaControler = new VentasController();
+    private PokemonController pokemonController = new PokemonController();
 
     public PrincipalFrame(){
         setSize(750,640);
@@ -430,86 +432,56 @@ public class PrincipalFrame extends JFrame{
         cem1Lbl.addActionListener(new ActionListener() { // REVIVIR POKEMONES ---------------------------
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getCementerio(0) instanceof PokemonVacio){
-                    alertaWindow("Este es un espacio vacío");
-                }else{
-                    if(PokeGotchi.jugador.getMonedas()>= precioARevivir1){
-                        PokeGotchi.jugador.getCementerio(0).revivir();
-                        Jugador.colocarNuevoPokemon(PokeGotchi.jugador.getCementerio(0));
-                        PokeGotchi.jugador.setCementerio(0, new PokemonVacio());
-                        PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas()-precioARevivir1);
-                    }else{
-                        alertaWindow("No tiene suficientes monedas para revivir a esta mascota :c");
-                    }
-                }dibujarEnFrame();
+                String mensaje = pokemonController.revivirPokemon(PokeGotchi.jugador,0, precioARevivir1);
+
+                if(mensaje != ""){
+                    alertaWindow(mensaje);
+                }
+                dibujarEnFrame();
             }
         });
         cem2Lbl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getCementerio(1) instanceof PokemonVacio){
-                    alertaWindow("Este es un espacio vacío");
-                }else{
-                    if(PokeGotchi.jugador.getMonedas()>= precioARevivir2){
-                        PokeGotchi.jugador.getCementerio(1).revivir();
-                        Jugador.colocarNuevoPokemon(PokeGotchi.jugador.getCementerio(1));
-                        PokeGotchi.jugador.setCementerio(1, new PokemonVacio());
-                        PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas()-precioARevivir2);
-                    }else {
-                        alertaWindow("No tiene suficientes monedas para revivir a esta mascota :c");
-                    }
-                }dibujarEnFrame();
+                String mensaje = pokemonController.revivirPokemon(PokeGotchi.jugador,1, precioARevivir2);
+
+                if(mensaje != ""){
+                    alertaWindow(mensaje);
+                }
+                dibujarEnFrame();
             }
         });
         cem3Lbl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getCementerio(2) instanceof PokemonVacio){
-                    alertaWindow("Este es un espacio vacío");
-                }else{
-                    if(PokeGotchi.jugador.getMonedas()>=precioARevivir3){
-                        PokeGotchi.jugador.getCementerio(2).revivir();
-                        Jugador.colocarNuevoPokemon(PokeGotchi.jugador.getCementerio(2));
-                        PokeGotchi.jugador.setCementerio(2, new PokemonVacio());
-                        PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas()-precioARevivir3);
-                    }else{
-                        alertaWindow("No tiene suficientes monedas para revivir a esta mascota :c");
-                    }
-                }dibujarEnFrame();
+                String mensaje = pokemonController.revivirPokemon(PokeGotchi.jugador,2, precioARevivir3);
+
+                if(mensaje != ""){
+                    alertaWindow(mensaje);
+                }
+                dibujarEnFrame();
             }
         });
         cem4Lbl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getCementerio(3) instanceof PokemonVacio){
-                    alertaWindow("Este es un espacio vacío");
-                }else{
-                    if(PokeGotchi.jugador.getMonedas() >= precioARevivir4){
-                        PokeGotchi.jugador.getCementerio(3).revivir();
-                        Jugador.colocarNuevoPokemon(PokeGotchi.jugador.getCementerio(3));
-                        PokeGotchi.jugador.setCementerio(3, new PokemonVacio());
-                        PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas()-precioARevivir4);
-                    }else{
-                        alertaWindow("No tiene suficientes monedas para revivir a esta mascota :c");
-                    }
-                }dibujarEnFrame();
+                String mensaje = pokemonController.revivirPokemon(PokeGotchi.jugador,3, precioARevivir4);
+
+                if(mensaje != ""){
+                    alertaWindow(mensaje);
+                }
+                dibujarEnFrame();
             }
         });
         cem5Lbl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(PokeGotchi.jugador.getCementerio(4) instanceof PokemonVacio){
-                    alertaWindow("Este es un espacio vacío");
-                }else{
-                    if(PokeGotchi.jugador.getMonedas() >= precioARevivir5 ){
-                        PokeGotchi.jugador.getCementerio(4).revivir();
-                        Jugador.colocarNuevoPokemon(PokeGotchi.jugador.getCementerio(4));
-                        PokeGotchi.jugador.setCementerio(4, new PokemonVacio());
-                        PokeGotchi.jugador.setMonedas(PokeGotchi.jugador.getMonedas()-precioARevivir5);
-                    }else{
-                        alertaWindow("No tiene suficientes monedas para revivir a esta mascota :c");
-                    }
-                }dibujarEnFrame();
+                String mensaje = pokemonController.revivirPokemon(PokeGotchi.jugador,4, precioARevivir1);
+
+                if(mensaje != ""){
+                    alertaWindow(mensaje);
+                }
+                dibujarEnFrame();
             }
         });
         pasearMasc1Btn.addActionListener(new ActionListener() { //PASEAR -----------------------------------------
