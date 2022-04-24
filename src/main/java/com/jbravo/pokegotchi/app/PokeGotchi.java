@@ -1,6 +1,12 @@
 package com.jbravo.pokegotchi.app;
 
 import com.jbravo.pokegotchi.app.consumibles.*;
+import com.jbravo.pokegotchi.app.consumibles.Comida.Analgesico;
+import com.jbravo.pokegotchi.app.consumibles.Comida.Antibiotico;
+import com.jbravo.pokegotchi.app.consumibles.Comida.Vitaminas;
+import com.jbravo.pokegotchi.app.consumibles.Medicina.Cereal;
+import com.jbravo.pokegotchi.app.consumibles.Medicina.Manzana;
+import com.jbravo.pokegotchi.app.consumibles.Medicina.Waffles;
 import com.jbravo.pokegotchi.app.motor.Jugador;
 import com.jbravo.pokegotchi.ui.PrincipalFrame;
 

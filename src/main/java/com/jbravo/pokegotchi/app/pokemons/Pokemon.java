@@ -2,8 +2,6 @@ package com.jbravo.pokegotchi.app.pokemons;
 
 import com.jbravo.pokegotchi.app.PokeGotchi;
 import com.jbravo.pokegotchi.app.motor.Jugador;
-import com.jbravo.pokegotchi.app.motor.VidaPokemon;
-import com.jbravo.pokegotchi.ui.PrincipalFrame;
 
 import javax.swing.*;
 import java.text.SimpleDateFormat;
@@ -157,8 +155,7 @@ public abstract class Pokemon {
         PokeGotchi.ventanaPrincipal.dibujarEnFrame();
 
     }
-    private void corregirEnfermedades(){ if(contadorEnfermedades < 0 ){contadorEnfermedades = 0;}}
-
+    
     protected void alerta(String mensaje){JOptionPane.showMessageDialog(null, mensaje);}
 
     public Random getRandom() {

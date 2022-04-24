@@ -292,7 +292,8 @@ public class PrincipalFrame extends JFrame{
                 }else{
                     JOptionPane.showMessageDialog(alerta, "No tiene suficiente dinero :c");
                 }
-                dibujarMonedas();dibujarInventario();
+                dibujarMonedas();
+                dibujarInventario();
             }
         });
         alimentarMasc1Btn.addActionListener(new ActionListener() { //ALIMENTAR MASCOTAS-------------------------------------------

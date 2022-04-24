@@ -1,10 +1,7 @@
 package com.jbravo.pokegotchi.app.motor;
 
 import com.jbravo.pokegotchi.app.PokeGotchi;
-import com.jbravo.pokegotchi.app.motor.tienda.VidaMascota1;
-import com.jbravo.pokegotchi.app.motor.tienda.VidaMascota2;
-import com.jbravo.pokegotchi.app.motor.vida.VidaMascota3;
-import com.jbravo.pokegotchi.app.motor.vida.VidaMascota4;
+import com.jbravo.pokegotchi.app.motor.vida.VidaPokemon;
 import com.jbravo.pokegotchi.app.pokemons.Pokemon;
 import com.jbravo.pokegotchi.app.pokemons.PokemonVacio;
 
@@ -80,10 +77,10 @@ public class Jugador {
 
         switch (colocar){ //Iniciar vida de los pokemones
             case 0: VidaPokemon vida1 = new VidaPokemon(colocar);vida1.start();break;
-            case 1: VidaMascota1 vida2 = new VidaMascota1(colocar);vida2.start();break;
-            case 2: VidaMascota2 vida3 = new VidaMascota2(colocar);vida3.start();break;
-            case 3: VidaMascota3 vida4 = new VidaMascota3(colocar);vida4.start();break;
-            case 4: VidaMascota4 vida5 = new VidaMascota4(colocar); vida5.start();break;
+            case 1: VidaPokemon vida2 = new VidaPokemon(colocar);vida2.start();break;
+            case 2: VidaPokemon vida3 = new VidaPokemon(colocar);vida3.start();break;
+            case 3: VidaPokemon vida4 = new VidaPokemon(colocar);vida4.start();break;
+            case 4: VidaPokemon vida5 = new VidaPokemon(colocar); vida5.start();break;
         }
     }
 

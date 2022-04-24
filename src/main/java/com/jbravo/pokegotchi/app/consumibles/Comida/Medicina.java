@@ -1,4 +1,4 @@
-package com.jbravo.pokegotchi.app.consumibles;
+package com.jbravo.pokegotchi.app.consumibles.Comida;
 
 public abstract class Medicina {
 

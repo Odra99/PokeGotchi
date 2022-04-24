@@ -1,6 +1,7 @@
-package com.jbravo.pokegotchi.app.motor;
+package com.jbravo.pokegotchi.app.motor.vida;
 
 import com.jbravo.pokegotchi.app.PokeGotchi;
+import com.jbravo.pokegotchi.app.motor.Jugador;
 import com.jbravo.pokegotchi.ui.PrincipalFrame;
 
 import java.util.Random;

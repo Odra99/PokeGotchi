@@ -1,6 +1,5 @@
 package com.jbravo.pokegotchi.app.pokemons;
 
-import com.jbravo.pokegotchi.app.motor.VidaPokemon;
 
 public class PokemonGen extends Pokemon{
 
